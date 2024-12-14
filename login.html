@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Your Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-image: url('https://t3.ftcdn.net/jpg/08/68/51/04/360_F_868510427_vsvN67LV1zSmLMyXMOFG05tRCmTAj1xL.jpg');
+      background-size: cover; /* Ensures the image covers the entire screen */
+      background-position: center; /* Centers the image */
+      background-repeat: no-repeat; /* Prevents tiling */
+      background-attachment: fixed; /* Fixes the background during scrolling */
+    }
+
+    .login-container {
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border: 1px solid #e2e8f0;
+      background-color: rgba(227, 80, 80, 0.9); /* Adds slight transparency */
+    }
+
+    button {
+      background-color: green; /* Button color */
+    }
+
+    button:hover {
+      background-color: darkgreen; /* Hover effect for button */
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #4A90E2; /* Focus effect for inputs */
+      box-shadow: 0 0 4px rgba(74, 144, 226, 0.5);
+    }
+  </style>
+</head>
+
+<body class="text-gray-900 flex items-center justify-center min-h-screen">
+  <div class="max-w-md w-full bg-white p-8 rounded-lg login-container">
+    <h2 class="text-2xl font-semibold mb-6 text-center text-gray-800">Login</h2>
+
+    <form id="loginForm">
+      <div class="mb-4">
+        <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
+        <input type="text" id="username" name="username" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required />
+      </div>
+      <div class="mb-6">
+        <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+        <input type="password" id="password" name="password" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required />
+      </div>
+      <button type="submit" class="w-full text-white p-2 rounded-md">Login</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      // Replace with your own credentials
+      const validUsername = "Harshita";
+      const validPassword = "123";
+
+      if (username === validUsername && password === validPassword) {
+        localStorage.setItem('loggedIn', 'true');
+        window.location.href = 'index.html'; // Redirect to portfolio
+      } else {
+        alert("Invalid credentials!");
+      }
+    });
+  </script>
+</body>
+</html>
